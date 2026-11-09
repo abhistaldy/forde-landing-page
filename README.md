@@ -1,21 +1,49 @@
-# Landing Page — design reference
+# FORDE — Landing Page
 
-This is a design mockup created in a visual design tool, exported as a
-standalone page. Treat it as a REFERENCE MOCKUP, not production code:
-the markup and inline styles carry the design's precise values — colors,
-font sizes, spacing, radii, shadows, layout — which an implementation
-should replicate faithfully in its own components and styling system
-rather than copy wholesale.
+Landing page company profile untuk FORDE, [satu kalimat tentang bidang usahanya]. Responsif, dengan animasi halus dan navigasi yang mengikuti scroll.
 
-## Contents
+**Live demo:** https://forde-bali-nusra.vercel.app/
 
-- `Main.dc.html` — the artboard (a Design Component: an `<x-dc>`
-  template + a small logic class). The values to replicate live in its
-  inline `style="…"` attributes and the `<helmet><style>` block.
-- `support.js`, `vendor/react*.js` — the runtime that renders the
-  component in a browser; not part of the design.
+## Fitur
 
-## Viewing
+- Headline hero dengan teks yang berganti otomatis
+- Carousel kartu layanan (bisa digeser dan mendukung keyboard)
+- Grid logo klien
+- Angka statistik dengan animasi hitung
+- Navigasi sticky yang menandai bagian aktif saat scroll
+- Tombol WhatsApp melayang
+- Tampilan responsif untuk desktop dan mobile
 
-Serve the folder (e.g. `python3 -m http.server`) and open `Main.dc.html`;
-some browsers block the scripts over file://.
+## Teknologi
+
+- HTML, CSS, JavaScript
+- React (runtime lokal di folder `vendor/`)
+- Font: DM Sans dan Manrope (Google Fonts)
+- Hosting: Vercel
+
+## Struktur folder
+
+```
+├── index.html
+├── support.js
+├── vendor/
+└── assets/
+```
+
+## Menjalankan di komputer sendiri
+
+Sebagian browser memblokir script kalau file dibuka langsung. Jalankan server lokal:
+
+```bash
+npx serve
+```
+
+Lalu buka alamat yang muncul, biasanya http://localhost:3000.
+
+## Peran saya
+
+[Contoh: Mengimplementasikan desain menjadi halaman web yang responsif, termasuk animasi dan interaksinya.]
+
+## Catatan
+
+Logo, foto, dan konten merek adalah milik FORDE dan pihak terkait, dan tidak untuk dipakai ulang.
