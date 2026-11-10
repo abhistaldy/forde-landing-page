@@ -3,7 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FORDE</title>
+<title>FORDE | Outsourcing &amp; Rekrutmen Tenaga Kerja – Bali, NTB, NTT</title>
+<meta name="description" content="FORDE menyediakan outsourcing dan rekrutmen tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FORDE">
+<meta property="og:title" content="FORDE | Outsourcing &amp; Rekrutmen Tenaga Kerja – Bali, NTB, NTT">
+<meta property="og:description" content="Tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT. / Ready-to-work staffing and recruitment in Bali, NTB and NTT.">
+<!-- og:image harus alamat lengkap (https://...). Ganti domain bila situs pindah ke domain sendiri. -->
+<meta property="og:image" content="https://forde-bali-nusra.vercel.app/assets/hero.jpg">
+<meta property="og:locale" content="id_ID">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=forde.co.id&sz=128">
 <link rel="icon" type="image/png" href="https://www.forde.co.id/favicon.png">
 <link rel="apple-touch-icon" href="https://www.forde.co.id/favicon.png">
@@ -279,6 +289,13 @@ button:not(.btn):not(.ca):hover{transform:scale(1.04)}
 }
 .lang{display:inline-flex;padding:3px;border-radius:999px;background:rgba(255,255,255,.12)}.lang button{min-height:40px;min-width:44px;border:0;border-radius:999px;background:transparent;color:#EAF2ED;font:700 13px/1 'Manrope',system-ui,sans-serif;letter-spacing:.04em;cursor:pointer}.lang button[aria-pressed=true]{background:#88B099;color:#0A1410}.lang button:focus-visible{outline:3px solid #88B099;outline-offset:2px}
 @media (max-width:720px){.wa{height:44px;min-width:44px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}.wa svg{width:24px;height:24px}.hero .hcta{padding-right:56px}.lang{padding:2px}.lang button{min-height:30px;min-width:38px;font-size:12px}.hero .hcta .b1{width:auto;min-height:44px;padding-left:20px;gap:10px;font-size:15px}.hero .hcta .b1 .arr{width:30px;height:30px}.hero .hcta .b1 .arr svg{width:15px;height:15px}}
+/* Header: tablet & laptop kecil. Nav + tombol bahasa + CTA tidak muat satu baris di bawah ~1160px,
+   jadi CTA header disembunyikan (CTA sudah ada di hero); di bawah 900px nav pindah ke baris kedua. */
+@media (max-width:1160px){.hd .btn{display:none}}
+@media (max-width:900px){.hd .pill{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap}.hd .pill a{flex:none}}
+/* Status formulir */
+.fst{margin:12px 0 0;min-height:1.5em;font-size:14px;line-height:1.5;text-align:center;color:#B9CBBF}
+.fst.err{color:#FFB4A8}
 </style>
 </helmet>
 <div id="top">
@@ -303,7 +320,7 @@ button:not(.btn):not(.ca):hover{transform:scale(1.04)}
 </div>
 </section>
 
-<div class="d mq" style="margin-top:56px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);color:#B9CBBF;font-weight:600;font-size:16px;white-space:nowrap"><div class="mqt"><div class="mqs"><span>Outsourcing Tenaga Kerja</span><span style="color:{{accent}}">✱</span><span>Outsourcing FnB</span><span style="color:{{accent}}">✱</span><span>Direct Placement</span><span style="color:{{accent}}">✱</span><span>Outsourcing FMGC</span><span style="color:{{accent}}">✱</span><span>Outsourcing Hospitality</span><span style="color:{{accent}}">✱</span><span>Outsourcing Logistik</span><span style="color:{{accent}}">✱</span><span>Kurir & Sprinter</span><span style="color:{{accent}}">✱</span></div><div class="mqs dup" aria-hidden="true"><span>Kitchen Crew & Waiters</span><span style="color:{{accent}}">✱</span><span>Housekeeping & Cleaning Service</span><span style="color:{{accent}}">✱</span><span>Helper Gudang & Packer</span><span style="color:{{accent}}">✱</span><span>Outsourcing Logistik</span><span style="color:{{accent}}">✱</span><span>Outsourcing Hospitality</span><span style="color:{{accent}}">✱</span><span>Outsourcing FnB</span><span style="color:{{accent}}">✱</span><span>Outsourcing FMGC</span><span style="color:{{accent}}">✱</span></div></div></div>
+<div class="d mq" style="margin-top:56px;padding:18px 0;border-top:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);color:#B9CBBF;font-weight:600;font-size:16px;white-space:nowrap"><div class="mqt"><div class="mqs"><span>Outsourcing Tenaga Kerja</span><span style="color:{{accent}}">✱</span><span>Outsourcing FnB</span><span style="color:{{accent}}">✱</span><span>Direct Placement</span><span style="color:{{accent}}">✱</span><span>Outsourcing FMCG</span><span style="color:{{accent}}">✱</span><span>Outsourcing Hospitality</span><span style="color:{{accent}}">✱</span><span>Outsourcing Logistik</span><span style="color:{{accent}}">✱</span><span>Kurir & Sprinter</span><span style="color:{{accent}}">✱</span></div><div class="mqs dup" aria-hidden="true"><span>Kitchen Crew & Waiters</span><span style="color:{{accent}}">✱</span><span>Housekeeping & Cleaning Service</span><span style="color:{{accent}}">✱</span><span>Helper Gudang & Packer</span><span style="color:{{accent}}">✱</span><span>Outsourcing Logistik</span><span style="color:{{accent}}">✱</span><span>Outsourcing Hospitality</span><span style="color:{{accent}}">✱</span><span>Outsourcing FnB</span><span style="color:{{accent}}">✱</span><span>Outsourcing FMCG</span><span style="color:{{accent}}">✱</span></div></div></div>
 
 <section id="tentang" class="sec" style="view-timeline-name:--tentang">
 <div class="wrap rv">
@@ -378,11 +395,12 @@ button:not(.btn):not(.ca):hover{transform:scale(1.04)}
 </div>
 </div>
 <div>
-<div style="margin-bottom:14px"><label for="n1" class="fi">Nama perusahaan</label><input id="n1" type="text" class="fld"></div>
-<div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))"><div><label for="n2" class="fi">Nomor WhatsApp</label><input id="n2" type="text" class="fld"></div><div><label for="n3" class="fi">Email</label><input id="n3" type="text" class="fld"></div></div>
-<div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))"><div><label for="n4" class="fi">Lokasi bisnis</label><div class="selw"><select id="n4" class="fld sel empty"><option value="">Pilih lokasi</option><option value="Bali">Bali</option><option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option><option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div><div><label for="n6" class="fi">Bidang usaha</label><div class="selw"><select id="n6" class="fld sel empty"><option value="">Pilih bidang usaha</option><option value="Logistik &amp; Pergudangan">Logistik &amp; Pergudangan</option><option value="Retail &amp; Distribusi">Retail &amp; Distribusi</option><option value="Manufaktur &amp; Produksi">Manufaktur &amp; Produksi</option><option value="Jasa &amp; Korporasi">Jasa &amp; Korporasi</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div></div>
-<div style="margin-bottom:18px"><label for="n5" class="fi">Kebutuhan tenaga kerja</label><textarea id="n5" class="fld" style="min-height:90px;resize:vertical"></textarea></div>
-<button type="button" class="btn b1" style="width:100%">Kirim Permintaan</button>
+<div style="margin-bottom:14px"><label for="n1" class="fi">Nama perusahaan</label><input id="n1" name="company" type="text" class="fld" autocomplete="organization"></div>
+<div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))"><div><label for="n2" class="fi">Nomor WhatsApp</label><input id="n2" name="whatsapp" type="tel" class="fld" inputmode="tel" autocomplete="tel"></div><div><label for="n3" class="fi">Email</label><input id="n3" name="email" type="email" class="fld" inputmode="email" autocomplete="email"></div></div>
+<div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))"><div><label for="n4" class="fi">Lokasi bisnis</label><div class="selw"><select id="n4" name="location" class="fld sel empty"><option value="">Pilih lokasi</option><option value="Bali">Bali</option><option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option><option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div><div><label for="n6" class="fi">Bidang usaha</label><div class="selw"><select id="n6" name="industry" class="fld sel empty"><option value="">Pilih bidang usaha</option><option value="Hospitality &amp; F&amp;B">Hospitality &amp; F&amp;B</option><option value="Logistik &amp; Pergudangan">Logistik &amp; Pergudangan</option><option value="Retail &amp; Distribusi">Retail &amp; Distribusi</option><option value="Manufaktur &amp; Produksi">Manufaktur &amp; Produksi</option><option value="Jasa &amp; Korporasi">Jasa &amp; Korporasi</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div></div>
+<div style="margin-bottom:18px"><label for="n5" class="fi">Kebutuhan tenaga kerja</label><textarea id="n5" name="needs" class="fld" style="min-height:90px;resize:vertical"></textarea></div>
+<button type="button" id="kirim" class="btn b1" style="width:100%">Kirim Permintaan</button>
+<p id="fstat" class="fst" role="status" aria-live="polite"></p>
 </div>
 </div>
 </div>
@@ -432,13 +450,12 @@ componentDidMount() {
       const a = links[idx];
       if (pill && a) {
         const pr = pill.getBoundingClientRect(), ar = a.getBoundingClientRect();
-        /* geseran menu ditangani skrip penanda (place) */
+        pill.scrollTo({ left: pill.scrollLeft + (ar.left - pr.left) - (pr.width - ar.width) / 2, behavior: 'smooth' });
       }
     }
   };
   const onScroll = () => { if (!tick) { tick = true; requestAnimationFrame(update); } };
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(update); } }, { passive: true });
 update();
 if (!('IntersectionObserver' in window)) return;
 const root = document.getElementById('top');
@@ -461,7 +478,8 @@ renderVals() {
 //            contoh: '6281234567890' (awalan 0 diganti 62)
 // email    : contoh 'halo@forde.co.id'
 // address  : contoh 'Jl. Contoh No. 1, Denpasar, Bali'
-// waMessage: pesan pembuka otomatis di WhatsApp
+// waMessage: pesan pembuka otomatis di WhatsApp (bahasa Indonesia)
+// waMessageEn: pesan pembuka versi bahasa Inggris (dipakai saat bahasa EN)
 // Kosongkan ('') bila belum ada: tampilan akan memakai [placeholder].
 // ==========================================================
 const CONTACT = {
@@ -469,7 +487,9 @@ whatsapp: '628113898004',
 email: 'balinusra@forde.co.id',
 address: 'Jl. Tukad Yeh Aya IX No.46, Renon, Denpasar Selatan, Kota Denpasar, Bali',
 waMessage: 'Halo FORDE Bali, saya ingin konsultasi kebutuhan tim perusahaan saya.',
+waMessageEn: 'Hello FORDE Bali, I would like to discuss the staffing needs of my company.',
 };
+window.__FORDE_CONTACT = CONTACT;
 const digits = (CONTACT.whatsapp || '').replace(/\D/g, '');
 const waHref = digits ? 'https://wa.me/' + digits + '?text=' + encodeURIComponent(CONTACT.waMessage) : '#kontak';
 const sel = this.state.sel || 1;
@@ -667,7 +687,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
 (function () {
   var IDS = ['tentang', 'layanan', 'proses', 'klien', 'kontak'];
   var pill, links, ind, cur = -1, tick = false;
-  window.__placeNav = function () { place(cur, true); };
+  window.__placeNav = function () { if (links && ind) place(cur, true); };
 
   function place(i, instant) {
     var a = links[i];
@@ -677,8 +697,6 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     ind.style.width = a.offsetWidth + 'px';
     ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
     if (instant) { void ind.offsetWidth; ind.classList.remove('nt'); }
-    var max = pill.scrollWidth - pill.clientWidth;
-    if (max > 4) pill.scrollTo({ left: Math.max(0, Math.min(max, a.offsetLeft - (pill.clientWidth - a.offsetWidth) / 2)), behavior: instant ? 'auto' : 'smooth' });
   }
   function spy(force) {
     tick = false;
@@ -737,16 +755,40 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
 </script>
 <script>
 (function () {
-  var D = {"Beranda": "Home", "Tentang": "About", "Layanan": "Services", "Proses": "Process", "Klien": "Clients", "Kontak": "Contact", "Konsultasi Gratis": "Free Consultation", "Chat WhatsApp": "Chat on WhatsApp", "Butuh": "Need", "di": "in", "Serahkan pada kami.": "Leave it to us.", "Layanan outsourcing dan rekrutmen tenaga kerja siap pakai untuk perusahaan di Bali, NTB, dan NTT. Kami mencari, menempatkan, dan mengelola tim Anda, supaya Anda fokus pada bisnis.": "Ready-to-work staffing and recruitment for hotels, villas, restaurants and businesses across Bali, NTB and NTT. We find, place and manage your team, so you can focus on your business.", "Outsourcing dan rekrutmen tenaga kerja siap pakai untuk perusahaan di Bali, NTB, dan NTT.": "Ready-to-work staffing and recruitment for hotels, villas and businesses in Bali, NTB and NTT.", "Outsourcing Tenaga Kerja": "Workforce Outsourcing", "Outsourcing FnB": "F&B Outsourcing", "Outsourcing FMGC": "FMCG Outsourcing", "Outsourcing Hospitality": "Hospitality Outsourcing", "Outsourcing Logistik": "Logistics Outsourcing", "Kurir & Sprinter": "Couriers & Sprinters", "Housekeeping & Cleaning Service": "Housekeeping & Cleaning", "Helper Gudang & Packer": "Warehouse Helpers & Packers", "Kami menghubungkan perusahaan di Bali dan Nusa Tenggara dengan talenta terbaik,": "We connect businesses in Bali and Nusa Tenggara with top talent,", "menempatkan tim dalam hitungan hari, dan menjaga kinerjanya tetap terukur lewat sistem HRIS.": "place teams within days, and keep their performance measurable through our HRIS.", "Klien aktif di seluruh Indonesia": "Active clients across Indonesia", "Retensi klien tahun ke tahun": "Year-over-year client retention", "hari": "days", "Rata-rata waktu deploy tim baru": "Average time to deploy a new team", "Wilayah layanan: Bali, NTT, NTB": "Service areas: Bali, NTT, NTB", "Layanan untuk pertumbuhan tim Anda.": "Services to grow your team.", "Tenaga kerja terpilih untuk berbagai kebutuhan operasional perusahaan di Bali dan Nusa Tenggara.": "Carefully selected workers for your operational needs across Bali and Nusa Tenggara.", "Foto placeholder": "Photo placeholder", "Logistik & Transportasi": "Logistics & Transportation", "Tenaga lapangan yang disiplin dan tepat waktu untuk pengiriman, distribusi, dan pergudangan. Kami menyiapkan kandidat yang siap bekerja dengan jadwal yang padat.": "Disciplined, punctual field staff for delivery, distribution and warehousing. We prepare candidates who are ready to work on tight schedules.", "Kurir dan Sprinter": "Couriers & Sprinters", "Supir (SIM A/B)": "Drivers (SIM A/B)", "Helper Gudang": "Warehouse Helpers", "Packer": "Packers", "Staff Warehouse": "Warehouse Staff", "Tim pelayanan yang ramah, rapi, dan terlatih untuk hotel, restoran, kafe, dan villa. Cocok untuk bisnis yang mengutamakan kenyamanan tamu.": "Friendly, neat and trained service teams for hotels, restaurants, cafés and villas. Ideal for businesses that put guest comfort first.", "Tenaga penjualan dan distribusi untuk produk konsumen yang bergerak cepat. Membantu produk Anda sampai ke toko, minimarket, dan pelanggan di Bali dan Nusa Tenggara.": "Sales and distribution staff for fast-moving consumer goods. Helping your products reach shops, minimarkets and customers in Bali and Nusa Tenggara.", "Helper Produksi": "Production Helpers", "Sales Motoris": "Motorbike Sales Reps", "Supir Distribusi": "Distribution Drivers", "Konsultasikan kebutuhan Anda": "Discuss your needs", "Metode rekrutmen kami": "Our recruitment method", "Empat langkah dari kebutuhan sampai tim siap bekerja.": "Four steps from your needs to a team ready to work.", "Perencanaan SDM": "Workforce Planning", "Menentukan jumlah, kompetensi, dan waktu penempatan sesuai rencana bisnis Anda.": "Defining headcount, skills and placement timing to fit your business plan.", "Pencarian & Seleksi": "Sourcing & Selection", "Menjaring kandidat dari jaringan dan talent pool kami.": "Sourcing candidates from our network and talent pool.", "Pelatihan & Penempatan": "Training & Placement", "Memberikan pelatihan perilaku dasar dan mempersiapkan kandidat sebelum ditempatkan di lingkungan kerja.": "Providing basic conduct training and preparing candidates before they are placed in the workplace.", "Pengelolaan SDM": "Workforce Management", "Pendampingan berlanjut setelah kandidat bekerja: penggajian bulanan, pengurusan BPJS, dan evaluasi kinerja berkala.": "Ongoing support once candidates start work: monthly payroll, BPJS (social security) administration and regular performance reviews.", "Mulai konsultasi gratis": "Start a free consultation", "Klien & cerita klien": "Clients & client stories", "Klien yang mempercayai kami di Bali dan Nusa Tenggara.": "Clients who trust us in Bali and Nusa Tenggara.", "[Testimoni dummy tentang kecepatan penempatan dan kualitas tenaga kerja.]": "[Placeholder testimonial about placement speed and workforce quality.]", "[Testimoni dummy tentang kemudahan mengelola karyawan lewat sistem HRIS.]": "[Placeholder testimonial about how easy it is to manage staff through the HRIS.]", "[Testimoni dummy tentang responsivitas tim FORDE.]": "[Placeholder testimonial about the FORDE team's responsiveness.]", "[Nama Klien]": "[Client Name]", "[Jabatan, Perusahaan di Bali/NTB/NTT]": "[Job Title, Company in Bali/NTB/NTT]", "Jadilah klien berikutnya": "Become our next client", "Klien Kami": "Our Clients", "Perusahaan yang telah mempercayai FORDE": "Companies that trust FORDE", "Hubungi tim kami": "Contact our team", "Siap memenuhi kebutuhan tenaga kerja bisnis Anda?": "Ready to meet your business's staffing needs?", "Bicara dengan spesialis kami dan dapatkan solusi bisnis yang akurat.": "Talk to our specialists and get an accurate solution for your business.", "Alamat": "Address", "Nama perusahaan": "Company name", "Nomor WhatsApp": "WhatsApp number", "Lokasi bisnis": "Business location", "Pilih lokasi": "Select location", "Nusa Tenggara Barat": "West Nusa Tenggara", "Nusa Tenggara Timur": "East Nusa Tenggara", "Lainnya": "Other", "Bidang usaha": "Industry", "Pilih bidang usaha": "Select industry", "Logistik & Pergudangan": "Logistics & Warehousing", "Retail & Distribusi": "Retail & Distribution", "Manufaktur & Produksi": "Manufacturing & Production", "Jasa & Korporasi": "Services & Corporate", "Kebutuhan tenaga kerja": "Staffing needs", "Kirim Permintaan": "Send Request", "© 2026 FORDE. Melayani perusahaan di Bali & Nusa Tenggara.": "© 2026 FORDE. Serving businesses in Bali & Nusa Tenggara.", "Navigasi utama": "Main navigation", "FORDE, kembali ke Beranda": "FORDE, back to Home", "Layanan sebelumnya": "Previous service", "Daftar layanan": "Service list", "Layanan berikutnya": "Next service", "Testimoni sebelumnya": "Previous testimonial", "Testimoni klien": "Client testimonials", "Testimoni berikutnya": "Next testimonial", "Logo klien": "Client logos"};
+  // ===== KAMUS TERJEMAHAN (kunci = teks Indonesia persis seperti di halaman) =====
+  var D = {"Beranda": "Home", "Tentang": "About", "Layanan": "Services", "Proses": "Process", "Klien": "Clients", "Kontak": "Contact", "Konsultasi Gratis": "Free Consultation", "Chat WhatsApp": "Chat on WhatsApp", "Butuh": "Need", "di": "in", "Serahkan pada kami.": "Leave it to us.", "Layanan outsourcing dan rekrutmen tenaga kerja siap pakai untuk perusahaan di Bali, NTB, dan NTT. Kami mencari, menempatkan, dan mengelola tim Anda, supaya Anda fokus pada bisnis.": "Ready-to-work staffing and recruitment for hotels, villas, restaurants and businesses across Bali, NTB and NTT. We find, place and manage your team, so you can focus on your business.", "Outsourcing dan rekrutmen tenaga kerja siap pakai untuk perusahaan di Bali, NTB, dan NTT.": "Ready-to-work staffing and recruitment for hotels, villas and businesses in Bali, NTB and NTT.", "Outsourcing Tenaga Kerja": "Workforce Outsourcing", "Outsourcing FnB": "F&B Outsourcing", "Outsourcing FMCG": "FMCG Outsourcing", "Outsourcing Hospitality": "Hospitality Outsourcing", "Outsourcing Logistik": "Logistics Outsourcing", "Kurir & Sprinter": "Couriers & Sprinters", "Housekeeping & Cleaning Service": "Housekeeping & Cleaning", "Helper Gudang & Packer": "Warehouse Helpers & Packers", "Kami menghubungkan perusahaan di Bali dan Nusa Tenggara dengan talenta terbaik,": "We connect businesses in Bali and Nusa Tenggara with top talent,", "menempatkan tim dalam hitungan hari, dan menjaga kinerjanya tetap terukur lewat sistem HRIS.": "place teams within days, and keep their performance measurable through our HRIS.", "Klien aktif di seluruh Indonesia": "Active clients across Indonesia", "Retensi klien tahun ke tahun": "Year-over-year client retention", "hari": "days", "Rata-rata waktu deploy tim baru": "Average time to deploy a new team", "Wilayah layanan: Bali, NTT, NTB": "Service areas: Bali, NTT, NTB", "Layanan untuk pertumbuhan tim Anda.": "Services to grow your team.", "Tenaga kerja terpilih untuk berbagai kebutuhan operasional perusahaan di Bali dan Nusa Tenggara.": "Carefully selected workers for your operational needs across Bali and Nusa Tenggara.", "Foto placeholder": "Photo placeholder", "Logistik & Transportasi": "Logistics & Transportation", "Tenaga lapangan yang disiplin dan tepat waktu untuk pengiriman, distribusi, dan pergudangan. Kami menyiapkan kandidat yang siap bekerja dengan jadwal yang padat.": "Disciplined, punctual field staff for delivery, distribution and warehousing. We prepare candidates who are ready to work on tight schedules.", "Kurir dan Sprinter": "Couriers & Sprinters", "Supir (SIM A/B)": "Drivers (SIM A/B)", "Helper Gudang": "Warehouse Helpers", "Packer": "Packers", "Staff Warehouse": "Warehouse Staff", "Tim pelayanan yang ramah, rapi, dan terlatih untuk hotel, restoran, kafe, dan villa. Cocok untuk bisnis yang mengutamakan kenyamanan tamu.": "Friendly, neat and trained service teams for hotels, restaurants, cafés and villas. Ideal for businesses that put guest comfort first.", "Tenaga penjualan dan distribusi untuk produk konsumen yang bergerak cepat. Membantu produk Anda sampai ke toko, minimarket, dan pelanggan di Bali dan Nusa Tenggara.": "Sales and distribution staff for fast-moving consumer goods. Helping your products reach shops, minimarkets and customers in Bali and Nusa Tenggara.", "Helper Produksi": "Production Helpers", "SPG/SPB": "Sales Promoters (SPG/SPB)", "Sales Motoris": "Motorbike Sales Reps", "Supir Distribusi": "Distribution Drivers", "Konsultasikan kebutuhan Anda": "Discuss your needs", "Metode rekrutmen kami": "Our recruitment method", "Empat langkah dari kebutuhan sampai tim siap bekerja.": "Four steps from your needs to a team ready to work.", "Perencanaan SDM": "Workforce Planning", "Menentukan jumlah, kompetensi, dan waktu penempatan sesuai rencana bisnis Anda.": "Defining headcount, skills and placement timing to fit your business plan.", "Pencarian & Seleksi": "Sourcing & Selection", "Menjaring kandidat dari jaringan dan talent pool kami.": "Sourcing candidates from our network and talent pool.", "Pelatihan & Penempatan": "Training & Placement", "Memberikan pelatihan perilaku dasar dan mempersiapkan kandidat sebelum ditempatkan di lingkungan kerja.": "Providing basic conduct training and preparing candidates before they are placed in the workplace.", "Pengelolaan SDM": "Workforce Management", "Pendampingan berlanjut setelah kandidat bekerja: penggajian bulanan, pengurusan BPJS, dan evaluasi kinerja berkala.": "Ongoing support once candidates start work: monthly payroll, BPJS (social security) administration and regular performance reviews.", "Mulai konsultasi gratis": "Start a free consultation", "Klien & cerita klien": "Clients & client stories", "Klien yang mempercayai kami di Bali dan Nusa Tenggara.": "Clients who trust us in Bali and Nusa Tenggara.", "[Testimoni dummy tentang kecepatan penempatan dan kualitas tenaga kerja.]": "[Placeholder testimonial about placement speed and workforce quality.]", "[Testimoni dummy tentang kemudahan mengelola karyawan lewat sistem HRIS.]": "[Placeholder testimonial about how easy it is to manage staff through the HRIS.]", "[Testimoni dummy tentang responsivitas tim FORDE.]": "[Placeholder testimonial about the FORDE team's responsiveness.]", "[Nama Klien]": "[Client Name]", "[Jabatan, Perusahaan di Bali/NTB/NTT]": "[Job Title, Company in Bali/NTB/NTT]", "Jadilah klien berikutnya": "Become our next client", "Klien Kami": "Our Clients", "Perusahaan yang telah mempercayai FORDE": "Companies that trust FORDE", "Hubungi tim kami": "Contact our team", "Siap memenuhi kebutuhan tenaga kerja bisnis Anda?": "Ready to meet your business's staffing needs?", "Bicara dengan spesialis kami dan dapatkan solusi bisnis yang akurat.": "Talk to our specialists and get an accurate solution for your business.", "Alamat": "Address", "Nama perusahaan": "Company name", "Nomor WhatsApp": "WhatsApp number", "Lokasi bisnis": "Business location", "Pilih lokasi": "Select location", "Nusa Tenggara Barat": "West Nusa Tenggara", "Nusa Tenggara Timur": "East Nusa Tenggara", "Lainnya": "Other", "Bidang usaha": "Industry", "Pilih bidang usaha": "Select industry", "Logistik & Pergudangan": "Logistics & Warehousing", "Retail & Distribusi": "Retail & Distribution", "Manufaktur & Produksi": "Manufacturing & Production", "Jasa & Korporasi": "Services & Corporate", "Kebutuhan tenaga kerja": "Staffing needs", "Kirim Permintaan": "Send Request", "© 2026 FORDE. Melayani perusahaan di Bali & Nusa Tenggara.": "© 2026 FORDE. Serving businesses in Bali & Nusa Tenggara.", "Navigasi utama": "Main navigation", "FORDE, kembali ke Beranda": "FORDE, back to Home", "Layanan sebelumnya": "Previous service", "Daftar layanan": "Service list", "Layanan berikutnya": "Next service", "Testimoni sebelumnya": "Previous testimonial", "Testimoni klien": "Client testimonials", "Testimoni berikutnya": "Next testimonial", "Logo klien": "Client logos"};
+
+  // ===== PESAN & JUDUL PER BAHASA =====
+  // Pesan WhatsApp bahasa Indonesia diatur di CONTACT.waMessage, bahasa Inggris di CONTACT.waMessageEn
+  // (bagian atas skrip komponen). Nilai di bawah hanya cadangan bila CONTACT kosong.
   var MSG = { id: 'Halo FORDE Bali, saya ingin konsultasi kebutuhan tim perusahaan saya.', en: 'Hello FORDE Bali, I would like to discuss the staffing needs of my company.' };
+  var META = {
+    id: { title: 'FORDE | Outsourcing & Rekrutmen Tenaga Kerja – Bali, NTB, NTT', desc: 'FORDE menyediakan outsourcing dan rekrutmen tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT.' },
+    en: { title: 'FORDE | Staffing & Recruitment – Bali, NTB, NTT', desc: 'FORDE provides ready-to-work staffing and recruitment for hotels, villas, restaurants and businesses in Bali, NTB and NTT.' }
+  };
+  // ===== TEKS FORMULIR =====
+  var UI = {
+    id: { fCompany: 'Nama perusahaan', fWa: 'Nomor WhatsApp', fEmail: 'Email', fLoc: 'Lokasi bisnis', fBiz: 'Bidang usaha', fNeeds: 'Kebutuhan tenaga kerja',
+          missing: 'Mohon isi nama perusahaan dan nomor WhatsApp.', badWa: 'Nomor WhatsApp tampak tidak valid.', badEmail: 'Format email tampak tidak valid.',
+          openWa: 'Membuka WhatsApp…', openMail: 'Membuka aplikasi email…', noDest: 'Tujuan kontak belum diatur.' },
+    en: { fCompany: 'Company name', fWa: 'WhatsApp number', fEmail: 'Email', fLoc: 'Business location', fBiz: 'Industry', fNeeds: 'Staffing needs',
+          missing: 'Please enter your company name and WhatsApp number.', badWa: 'The WhatsApp number looks invalid.', badEmail: 'The email format looks invalid.',
+          openWa: 'Opening WhatsApp…', openMail: 'Opening your email app…', noDest: 'No contact destination has been set up yet.' }
+  };
+
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
   function has(k) { return Object.prototype.hasOwnProperty.call(D, k); }
+  function lang() { return document.documentElement.lang === 'en' ? 'en' : 'id'; }
+  function contact() { return window.__FORDE_CONTACT || {}; }
+
+  // Bahasa awal: ?lang=en|id  >  pilihan tersimpan  >  Indonesia
   function initial() {
     var q = (location.search.match(/[?&]lang=(id|en)/) || [])[1];
     if (q) return q;
     try { var s = localStorage.getItem('forde-lang'); if (s === 'id' || s === 'en') return s; } catch (e) {}
-    return /^id/i.test(navigator.language || 'id') ? 'id' : 'en';
+    return 'id';
   }
+
   function apply(l) {
     var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n, list = [];
     while ((n = w.nextNode())) list.push(n);
@@ -760,13 +802,20 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
       if (e._a === undefined) { var k = norm(e.getAttribute('aria-label')); if (!has(k)) return; e._a = e.getAttribute('aria-label'); e._k = k; }
       e.setAttribute('aria-label', l === 'en' ? D[e._k] : e._a);
     });
+    // Tautan WhatsApp: bahasa Indonesia = tautan asli (CONTACT.waMessage), bahasa Inggris = CONTACT.waMessageEn
     Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me/"]'), function (a) {
-      a.href = a.href.split('?')[0] + '?text=' + encodeURIComponent(MSG[l]);
+      if (a._h === undefined) a._h = a.getAttribute('href');
+      a.setAttribute('href', l === 'en' ? a._h.split('?')[0] + '?text=' + encodeURIComponent(contact().waMessageEn || MSG.en) : a._h);
     });
     Array.prototype.forEach.call(document.querySelectorAll('[data-lang]'), function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
     });
     document.documentElement.lang = l;
+    document.title = META[l].title;
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', META[l].desc);
+    var st = document.getElementById('fstat');
+    if (st) { st.textContent = ''; st.classList.remove('err'); }
     if (window.__words) window.__words(l);
     if (window.__placeNav) window.__placeNav();
   }
@@ -775,14 +824,75 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     try { localStorage.setItem('forde-lang', l); } catch (e) {}
     try { var u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch (e) {}
   }
+
+  // ===== FORMULIR: kirim ke WhatsApp (cadangan: email) =====
+  function val(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
+  function selText(id) {
+    var e = document.getElementById(id);
+    if (!e || !e.value) return '';
+    var o = e.options[e.selectedIndex];
+    return o ? o.text.trim() : e.value;
+  }
+  function status(msg, err) {
+    var s = document.getElementById('fstat');
+    if (!s) return;
+    s.textContent = msg;
+    s.classList.toggle('err', !!err);
+  }
+  function openLink(url) {
+    var a = document.createElement('a');
+    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
+  function submit() {
+    var l = lang(), U = UI[l], C = contact();
+    var company = val('n1'), wa = val('n2'), email = val('n3'), needs = val('n5');
+    var loc = selText('n4'), biz = selText('n6');
+    if (!company || !wa) { status(U.missing, true); document.getElementById(!company ? 'n1' : 'n2').focus(); return; }
+    var digits = wa.replace(/\D/g, '');
+    if (digits.length < 8 || digits.length > 15) { status(U.badWa, true); document.getElementById('n2').focus(); return; }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status(U.badEmail, true); document.getElementById('n3').focus(); return; }
+    var head = l === 'en' ? (C.waMessageEn || MSG.en) : (C.waMessage || MSG.id);
+    var lines = [head, '', U.fCompany + ': ' + company, U.fWa + ': ' + wa];
+    if (email) lines.push(U.fEmail + ': ' + email);
+    if (loc) lines.push(U.fLoc + ': ' + loc);
+    if (biz) lines.push(U.fBiz + ': ' + biz);
+    if (needs) lines.push(U.fNeeds + ': ' + needs);
+    var text = lines.join('\n');
+    var num = (C.whatsapp || '').replace(/\D/g, '');
+    if (num) {
+      status(U.openWa, false);
+      openLink('https://wa.me/' + num + '?text=' + encodeURIComponent(text));
+    } else if (C.email) {
+      status(U.openMail, false);
+      openLink('mailto:' + C.email + '?subject=' + encodeURIComponent('FORDE – ' + company) + '&body=' + encodeURIComponent(text));
+    } else {
+      status(U.noDest, true);
+    }
+  }
+
   document.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('[data-lang]');
-    if (b) set(b.getAttribute('data-lang'));
+    var t = e.target;
+    var b = t.closest && t.closest('[data-lang]');
+    if (b) { set(b.getAttribute('data-lang')); return; }
+    if (t.closest && t.closest('#kirim')) submit();
   });
-  var tries = 0, t = setInterval(function () {
-    if (document.querySelector('.hd .lang')) { clearInterval(t); apply(initial()); }
-    else if (++tries > 200) clearInterval(t);
-  }, 100);
+
+  // Terapkan bahasa begitu halaman selesai dirender (sebelum tampil, agar tidak berkedip)
+  var done = false;
+  function boot() {
+    if (done) return true;
+    // harus hasil render React (#dc-root), bukan salinan mentah template di <x-dc>
+    if (!document.querySelector('#dc-root .hd .lang')) return false;
+    done = true;
+    apply(initial());
+    return true;
+  }
+  if (!boot()) {
+    var mo = new MutationObserver(function () { if (boot()) mo.disconnect(); });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+    setTimeout(function () { mo.disconnect(); boot(); }, 8000);
+  }
 })();
 </script>
 </body>
