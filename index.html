@@ -432,7 +432,7 @@ componentDidMount() {
       const a = links[idx];
       if (pill && a) {
         const pr = pill.getBoundingClientRect(), ar = a.getBoundingClientRect();
-        pill.scrollTo({ left: pill.scrollLeft + (ar.left - pr.left) - (pr.width - ar.width) / 2, behavior: 'smooth' });
+        /* geseran menu ditangani skrip penanda (place) */
       }
     }
   };
@@ -667,6 +667,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
 (function () {
   var IDS = ['tentang', 'layanan', 'proses', 'klien', 'kontak'];
   var pill, links, ind, cur = -1, tick = false;
+  window.__placeNav = function () { place(cur, true); };
 
   function place(i, instant) {
     var a = links[i];
@@ -676,6 +677,8 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     ind.style.width = a.offsetWidth + 'px';
     ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
     if (instant) { void ind.offsetWidth; ind.classList.remove('nt'); }
+    var max = pill.scrollWidth - pill.clientWidth;
+    if (max > 4) pill.scrollTo({ left: Math.max(0, Math.min(max, a.offsetLeft - (pill.clientWidth - a.offsetWidth) / 2)), behavior: instant ? 'auto' : 'smooth' });
   }
   function spy(force) {
     tick = false;
@@ -765,6 +768,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     });
     document.documentElement.lang = l;
     if (window.__words) window.__words(l);
+    if (window.__placeNav) window.__placeNav();
   }
   function set(l) {
     apply(l);
