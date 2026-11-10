@@ -10,7 +10,9 @@
 <meta property="og:title" content="FORDE | Outsourcing &amp; Rekrutmen Tenaga Kerja – Bali, NTB, NTT">
 <meta property="og:description" content="Tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT. / Ready-to-work staffing and recruitment in Bali, NTB and NTT.">
 <!-- og:image harus alamat lengkap (https://...). Ganti domain bila situs pindah ke domain sendiri. -->
-<meta property="og:image" content="https://forde-bali-nusra.vercel.app/assets/hero.jpg">
+<meta property="og:image" content="https://forde-bali-nusra-alpha.vercel.app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:locale" content="id_ID">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -296,6 +298,57 @@ button:not(.btn):not(.ca):hover{transform:scale(1.04)}
 /* Status formulir */
 .fst{margin:12px 0 0;min-height:1.5em;font-size:14px;line-height:1.5;text-align:center;color:#B9CBBF}
 .fst.err{color:#FFB4A8}
+/* ===== Mobile: tampilan lebih ringkas ===== */
+@media (max-width:720px){
+html{scroll-padding-top:96px}
+#top{--px:18px}
+.sec,#logo-klien{padding-top:36px;padding-bottom:36px}
+#layanan,#klien{padding-top:0}
+.hd{animation:none;background:rgba(10,20,16,.9);padding-top:8px;padding-bottom:8px}
+.hd .wrap{gap:6px 12px}
+.hd .pill{padding:3px}
+.pind{top:3px;bottom:3px}
+.nl.lk{min-height:36px;padding:0 14px;font-size:14px}
+.tag{font-size:12px;padding:5px 12px}
+.h2{font-size:26px;margin:10px 0 20px}
+.lh .h2{margin:10px auto 10px}
+.lh .sub{font-size:15px;margin-bottom:24px}
+.btn{min-height:44px;padding:0 18px;font-size:15px;gap:10px}
+.btn.bs{min-height:40px;font-size:14px}
+.arr{width:28px;height:28px}
+.arr svg{width:15px;height:15px}
+.sec .wrap>div[style*="margin-top:40px"]{margin-top:22px!important}
+.mq{margin-top:24px!important;padding:12px 0!important;font-size:14px!important}
+.mqs{gap:20px;padding-right:20px}
+#tentang .wrap>p.d{font-size:21px!important;line-height:1.3!important;margin:14px 0 18px!important}
+#tentang .wrap>div[style*="margin-bottom:40px"]{margin-bottom:22px!important}
+.pn{font-size:13px;padding:5px 12px;margin:0 6px 6px 0}
+#tentang .g{grid-template-columns:1fr 1fr;gap:0 16px}
+.sc{min-height:0;justify-content:flex-start;gap:6px;padding-top:14px;padding-bottom:16px}
+.sn{font-size:34px}
+.sl{font-size:13px;line-height:1.4}
+.cc{flex-basis:min(80%,320px)}
+.cimg{aspect-ratio:1/1;border-radius:20px}
+.cb{padding-top:14px}
+.cb h3{font-size:19px;margin-bottom:6px}
+.cb p{font-size:14px;margin-bottom:14px}
+.tgs{gap:6px}
+.tgs span{font-size:12px;padding:5px 11px}
+#proses .stp{padding:16px var(--px) 4px}
+.stp h3{font-size:18px}
+.stp p{font-size:14px}
+.stp b{margin-bottom:4px}
+.tc{padding-top:18px}
+.tc .qm{font-size:40px;margin-bottom:6px}
+.tc .q{font-size:15px;margin-bottom:14px}
+.lgg{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lgi{padding:8px 10px;border-radius:10px}
+#kontak h2.d{font-size:26px!important;margin:10px 0!important}
+.fld{min-height:44px;padding:10px 12px}
+.fi{font-size:13px;margin-bottom:4px}
+#n5{min-height:72px!important}
+footer{padding:24px var(--px)!important}
+}
 </style>
 </helmet>
 <div id="top">
@@ -450,7 +503,7 @@ componentDidMount() {
       const a = links[idx];
       if (pill && a) {
         const pr = pill.getBoundingClientRect(), ar = a.getBoundingClientRect();
-        pill.scrollTo({ left: pill.scrollLeft + (ar.left - pr.left) - (pr.width - ar.width) / 2, behavior: 'smooth' });
+        /* geseran menu ditangani skrip penanda (place) */
       }
     }
   };
@@ -697,6 +750,8 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     ind.style.width = a.offsetWidth + 'px';
     ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
     if (instant) { void ind.offsetWidth; ind.classList.remove('nt'); }
+    var mx = pill.scrollWidth - pill.clientWidth;
+    if (mx > 4) pill.scrollTo({ left: Math.max(0, Math.min(mx, a.offsetLeft - (pill.clientWidth - a.offsetWidth) / 2)), behavior: instant ? 'auto' : 'smooth' });
   }
   function spy(force) {
     tick = false;
