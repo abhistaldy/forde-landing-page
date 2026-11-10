@@ -2,7 +2,7 @@
 
 Landing page company profile untuk FORDE, [satu kalimat tentang bidang usahanya]. Responsif, dengan animasi halus dan navigasi yang mengikuti scroll.
 
-**Live demo:** 
+**Live demo: https://forde-bali-nusra-alpha.vercel.app 
 
 ## Fitur
 
