@@ -503,7 +503,7 @@ componentDidMount() {
       const a = links[idx];
       if (pill && a) {
         const pr = pill.getBoundingClientRect(), ar = a.getBoundingClientRect();
-        /* geseran menu ditangani skrip penanda (place) */
+        pill.scrollTo({ left: pill.scrollLeft + (ar.left - pr.left) - (pr.width - ar.width) / 2, behavior: 'smooth' });
       }
     }
   };
@@ -750,8 +750,6 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     ind.style.width = a.offsetWidth + 'px';
     ind.style.transform = 'translateX(' + a.offsetLeft + 'px)';
     if (instant) { void ind.offsetWidth; ind.classList.remove('nt'); }
-    var mx = pill.scrollWidth - pill.clientWidth;
-    if (mx > 4) pill.scrollTo({ left: Math.max(0, Math.min(mx, a.offsetLeft - (pill.clientWidth - a.offsetWidth) / 2)), behavior: instant ? 'auto' : 'smooth' });
   }
   function spy(force) {
     tick = false;
@@ -821,14 +819,16 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     id: { title: 'FORDE | Outsourcing & Rekrutmen Tenaga Kerja – Bali, NTB, NTT', desc: 'FORDE menyediakan outsourcing dan rekrutmen tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT.' },
     en: { title: 'FORDE | Staffing & Recruitment – Bali, NTB, NTT', desc: 'FORDE provides ready-to-work staffing and recruitment for hotels, villas, restaurants and businesses in Bali, NTB and NTT.' }
   };
-  // ===== TEKS FORMULIR =====
+  // ===== TEKS FORMULIR (intro = kalimat pembuka email; subject = awalan subjek email) =====
   var UI = {
     id: { fCompany: 'Nama perusahaan', fWa: 'Nomor WhatsApp', fEmail: 'Email', fLoc: 'Lokasi bisnis', fBiz: 'Bidang usaha', fNeeds: 'Kebutuhan tenaga kerja',
           missing: 'Mohon isi nama perusahaan dan nomor WhatsApp.', badWa: 'Nomor WhatsApp tampak tidak valid.', badEmail: 'Format email tampak tidak valid.',
-          openWa: 'Membuka WhatsApp…', openMail: 'Membuka aplikasi email…', noDest: 'Tujuan kontak belum diatur.' },
+          openMail: 'Membuka aplikasi email…', mailHint: 'Jika tidak terbuka, kirim langsung ke', noDest: 'Alamat email tujuan belum diatur.',
+          intro: 'Halo FORDE Bali, saya ingin konsultasi kebutuhan tim perusahaan saya.', subject: 'Konsultasi kebutuhan tenaga kerja – ' },
     en: { fCompany: 'Company name', fWa: 'WhatsApp number', fEmail: 'Email', fLoc: 'Business location', fBiz: 'Industry', fNeeds: 'Staffing needs',
           missing: 'Please enter your company name and WhatsApp number.', badWa: 'The WhatsApp number looks invalid.', badEmail: 'The email format looks invalid.',
-          openWa: 'Opening WhatsApp…', openMail: 'Opening your email app…', noDest: 'No contact destination has been set up yet.' }
+          openMail: 'Opening your email app…', mailHint: 'If nothing opens, email us directly at', noDest: 'No destination email has been set up yet.',
+          intro: 'Hello FORDE Bali, I would like to discuss the staffing needs of my company.', subject: 'Staffing enquiry – ' }
   };
 
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
@@ -880,7 +880,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     try { var u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch (e) {}
   }
 
-  // ===== FORMULIR: kirim ke WhatsApp (cadangan: email) =====
+  // ===== FORMULIR: dikirim ke email CONTACT.email lewat aplikasi email pengunjung (mailto) =====
   function val(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
   function selText(id) {
     var e = document.getElementById(id);
@@ -894,9 +894,9 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     s.textContent = msg;
     s.classList.toggle('err', !!err);
   }
-  function openLink(url) {
+  function openMailto(url) {
     var a = document.createElement('a');
-    a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.href = url;
     document.body.appendChild(a); a.click(); a.remove();
   }
   function submit() {
@@ -907,23 +907,14 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     var digits = wa.replace(/\D/g, '');
     if (digits.length < 8 || digits.length > 15) { status(U.badWa, true); document.getElementById('n2').focus(); return; }
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status(U.badEmail, true); document.getElementById('n3').focus(); return; }
-    var head = l === 'en' ? (C.waMessageEn || MSG.en) : (C.waMessage || MSG.id);
-    var lines = [head, '', U.fCompany + ': ' + company, U.fWa + ': ' + wa];
+    var lines = [U.intro, '', U.fCompany + ': ' + company, U.fWa + ': ' + wa];
     if (email) lines.push(U.fEmail + ': ' + email);
     if (loc) lines.push(U.fLoc + ': ' + loc);
     if (biz) lines.push(U.fBiz + ': ' + biz);
     if (needs) lines.push(U.fNeeds + ': ' + needs);
-    var text = lines.join('\n');
-    var num = (C.whatsapp || '').replace(/\D/g, '');
-    if (num) {
-      status(U.openWa, false);
-      openLink('https://wa.me/' + num + '?text=' + encodeURIComponent(text));
-    } else if (C.email) {
-      status(U.openMail, false);
-      openLink('mailto:' + C.email + '?subject=' + encodeURIComponent('FORDE – ' + company) + '&body=' + encodeURIComponent(text));
-    } else {
-      status(U.noDest, true);
-    }
+    if (!C.email) { status(U.noDest, true); return; }
+    status(U.openMail + ' ' + U.mailHint + ' ' + C.email + '.', false);
+    openMailto('mailto:' + C.email + '?subject=' + encodeURIComponent(U.subject + company) + '&body=' + encodeURIComponent(lines.join('\r\n')));
   }
 
   document.addEventListener('click', function (e) {
