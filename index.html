@@ -298,6 +298,9 @@ button:not(.btn):not(.ca):hover{transform:scale(1.04)}
 /* Status formulir */
 .fst{margin:12px 0 0;min-height:1.5em;font-size:14px;line-height:1.5;text-align:center;color:#B9CBBF}
 .fst.err{color:#FFB4A8}
+.fst.ok{color:#88B099}
+/* Tombol kirim saat sedang mengirim (Web3Forms) */
+.btn:disabled{opacity:.6;cursor:wait;transform:none!important;box-shadow:none!important}
 /* ===== Mobile: tampilan lebih ringkas ===== */
 @media (max-width:720px){
 html{scroll-padding-top:96px}
@@ -452,6 +455,7 @@ footer{padding:24px var(--px)!important}
 <div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr))"><div><label for="n2" class="fi">Nomor WhatsApp</label><input id="n2" name="whatsapp" type="tel" class="fld" inputmode="tel" autocomplete="tel"></div><div><label for="n3" class="fi">Email</label><input id="n3" name="email" type="email" class="fld" inputmode="email" autocomplete="email"></div></div>
 <div class="g" style="gap:14px;margin-bottom:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))"><div><label for="n4" class="fi">Lokasi bisnis</label><div class="selw"><select id="n4" name="location" class="fld sel empty"><option value="">Pilih lokasi</option><option value="Bali">Bali</option><option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option><option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div><div><label for="n6" class="fi">Bidang usaha</label><div class="selw"><select id="n6" name="industry" class="fld sel empty"><option value="">Pilih bidang usaha</option><option value="Hospitality &amp; F&amp;B">Hospitality &amp; F&amp;B</option><option value="Logistik &amp; Pergudangan">Logistik &amp; Pergudangan</option><option value="Retail &amp; Distribusi">Retail &amp; Distribusi</option><option value="Manufaktur &amp; Produksi">Manufaktur &amp; Produksi</option><option value="Jasa &amp; Korporasi">Jasa &amp; Korporasi</option><option value="Lainnya">Lainnya</option></select><svg aria-hidden="true" class="sel-ar" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div></div></div>
 <div style="margin-bottom:18px"><label for="n5" class="fi">Kebutuhan tenaga kerja</label><textarea id="n5" name="needs" class="fld" style="min-height:90px;resize:vertical"></textarea></div>
+<input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
 <button type="button" id="kirim" class="btn b1" style="width:100%">Kirim Permintaan</button>
 <p id="fstat" class="fst" role="status" aria-live="polite"></p>
 </div>
@@ -819,22 +823,38 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     id: { title: 'FORDE | Outsourcing & Rekrutmen Tenaga Kerja – Bali, NTB, NTT', desc: 'FORDE menyediakan outsourcing dan rekrutmen tenaga kerja siap pakai untuk hotel, villa, restoran, dan perusahaan di Bali, NTB, dan NTT.' },
     en: { title: 'FORDE | Staffing & Recruitment – Bali, NTB, NTT', desc: 'FORDE provides ready-to-work staffing and recruitment for hotels, villas, restaurants and businesses in Bali, NTB and NTT.' }
   };
-  // ===== TEKS FORMULIR (intro = kalimat pembuka email; subject = awalan subjek email) =====
+
+  // ==========================================================
+  // WEB3FORMS: ISI ACCESS KEY DI SINI
+  // Ganti ISI_ACCESS_KEY_DI_SINI dengan access key dari email Web3Forms (web3forms.com).
+  // Semua kiriman formulir akan masuk ke email yang Anda daftarkan saat membuat key.
+  // Tanda kutip '...' jangan dihapus, dan jangan ubah bagian url.
+  // ==========================================================
+  var W3F = { key: '58f27f27-b250-4774-9b22-9d991eea6475', url: 'https://api.web3forms.com/submit' };
+
+  // ===== TEKS FORMULIR =====
   var UI = {
     id: { fCompany: 'Nama perusahaan', fWa: 'Nomor WhatsApp', fEmail: 'Email', fLoc: 'Lokasi bisnis', fBiz: 'Bidang usaha', fNeeds: 'Kebutuhan tenaga kerja',
           missing: 'Mohon isi nama perusahaan dan nomor WhatsApp.', badWa: 'Nomor WhatsApp tampak tidak valid.', badEmail: 'Format email tampak tidak valid.',
-          openMail: 'Membuka aplikasi email…', mailHint: 'Jika tidak terbuka, kirim langsung ke', noDest: 'Alamat email tujuan belum diatur.',
-          intro: 'Halo FORDE Bali, saya ingin konsultasi kebutuhan tim perusahaan saya.', subject: 'Konsultasi kebutuhan tenaga kerja – ' },
+          sending: 'Mengirim permintaan…',
+          sent: 'Terima kasih! Permintaan Anda sudah terkirim. Tim kami akan segera menghubungi Anda.',
+          failed: 'Gagal mengirim. Silakan coba lagi atau hubungi kami lewat WhatsApp.',
+          noKey: 'Access key Web3Forms belum diatur.',
+          subject: 'Konsultasi kebutuhan tenaga kerja – ' },
     en: { fCompany: 'Company name', fWa: 'WhatsApp number', fEmail: 'Email', fLoc: 'Business location', fBiz: 'Industry', fNeeds: 'Staffing needs',
           missing: 'Please enter your company name and WhatsApp number.', badWa: 'The WhatsApp number looks invalid.', badEmail: 'The email format looks invalid.',
-          openMail: 'Opening your email app…', mailHint: 'If nothing opens, email us directly at', noDest: 'No destination email has been set up yet.',
-          intro: 'Hello FORDE Bali, I would like to discuss the staffing needs of my company.', subject: 'Staffing enquiry – ' }
+          sending: 'Sending your request…',
+          sent: 'Thank you! Your request has been sent. Our team will contact you shortly.',
+          failed: 'Failed to send. Please try again or contact us on WhatsApp.',
+          noKey: 'The Web3Forms access key has not been set.',
+          subject: 'Staffing enquiry – ' }
   };
 
   function norm(s) { return s.replace(/\s+/g, ' ').trim(); }
   function has(k) { return Object.prototype.hasOwnProperty.call(D, k); }
   function lang() { return document.documentElement.lang === 'en' ? 'en' : 'id'; }
   function contact() { return window.__FORDE_CONTACT || {}; }
+  function sync(el) { el.classList.toggle('empty', !el.value); }
 
   // Bahasa awal: ?lang=en|id  >  pilihan tersimpan  >  Indonesia
   function initial() {
@@ -870,7 +890,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', META[l].desc);
     var st = document.getElementById('fstat');
-    if (st) { st.textContent = ''; st.classList.remove('err'); }
+    if (st) { st.textContent = ''; st.classList.remove('err'); st.classList.remove('ok'); }
     if (window.__words) window.__words(l);
     if (window.__placeNav) window.__placeNav();
   }
@@ -880,7 +900,7 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     try { var u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch (e) {}
   }
 
-  // ===== FORMULIR: dikirim ke email CONTACT.email lewat aplikasi email pengunjung (mailto) =====
+  // ===== FORMULIR: dikirim lewat Web3Forms (fetch + JSON) =====
   function val(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
   function selText(id) {
     var e = document.getElementById(id);
@@ -888,33 +908,69 @@ addressText: CONTACT.address || '[ALAMAT KANTOR]',
     var o = e.options[e.selectedIndex];
     return o ? o.text.trim() : e.value;
   }
-  function status(msg, err) {
+  function status(msg, err, ok) {
     var s = document.getElementById('fstat');
     if (!s) return;
     s.textContent = msg;
     s.classList.toggle('err', !!err);
+    s.classList.toggle('ok', !!ok);
   }
-  function openMailto(url) {
-    var a = document.createElement('a');
-    a.href = url;
-    document.body.appendChild(a); a.click(); a.remove();
-  }
+
+  var sending = false;
   function submit() {
-    var l = lang(), U = UI[l], C = contact();
+    if (sending) return;
+    var U = UI[lang()];
     var company = val('n1'), wa = val('n2'), email = val('n3'), needs = val('n5');
     var loc = selText('n4'), biz = selText('n6');
+
     if (!company || !wa) { status(U.missing, true); document.getElementById(!company ? 'n1' : 'n2').focus(); return; }
     var digits = wa.replace(/\D/g, '');
     if (digits.length < 8 || digits.length > 15) { status(U.badWa, true); document.getElementById('n2').focus(); return; }
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status(U.badEmail, true); document.getElementById('n3').focus(); return; }
-    var lines = [U.intro, '', U.fCompany + ': ' + company, U.fWa + ': ' + wa];
-    if (email) lines.push(U.fEmail + ': ' + email);
-    if (loc) lines.push(U.fLoc + ': ' + loc);
-    if (biz) lines.push(U.fBiz + ': ' + biz);
-    if (needs) lines.push(U.fNeeds + ': ' + needs);
-    if (!C.email) { status(U.noDest, true); return; }
-    status(U.openMail + ' ' + U.mailHint + ' ' + C.email + '.', false);
-    openMailto('mailto:' + C.email + '?subject=' + encodeURIComponent(U.subject + company) + '&body=' + encodeURIComponent(lines.join('\r\n')));
+    if (!W3F.key || W3F.key.indexOf('ISI_') === 0) { status(U.noKey, true); return; }
+
+    var hp = document.getElementById('botcheck');
+    var payload = {
+      access_key: W3F.key,
+      subject: U.subject + company,
+      from_name: 'Website FORDE',
+      name: company,
+      message: needs || '-',
+      botcheck: hp ? hp.checked : false
+    };
+    payload[U.fWa] = wa;
+    if (email) payload.email = email;          // dipakai sebagai alamat balas
+    if (loc) payload[U.fLoc] = loc;
+    if (biz) payload[U.fBiz] = biz;
+    payload['Bahasa halaman'] = lang().toUpperCase();
+
+    var btn = document.getElementById('kirim');
+    sending = true;
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    status(U.sending, false);
+
+    fetch(W3F.url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) {
+        return r.json().then(function (j) { return r.ok && j.success; });
+      })
+      .then(function (ok) {
+        var T = UI[lang()];
+        if (!ok) { status(T.failed, true); return; }
+        status(T.sent, false, true);
+        ['n1', 'n2', 'n3', 'n5'].forEach(function (id) { var e = document.getElementById(id); if (e) e.value = ''; });
+        ['n4', 'n6'].forEach(function (id) { var s = document.getElementById(id); if (s) { s.value = ''; sync(s); } });
+      })
+      .catch(function () { status(UI[lang()].failed, true); })
+      .then(function () {
+        sending = false;
+        btn.disabled = false;
+        btn.removeAttribute('aria-busy');
+      });
   }
 
   document.addEventListener('click', function (e) {
